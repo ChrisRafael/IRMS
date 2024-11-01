@@ -1,0 +1,98 @@
+            /* General Styles */
+            body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .content {
+            margin-left:auto;
+            width: 80%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color:  #999494;
+            padding: 20px;
+            color: rgb(13, 13, 13);
+            text-align: left;
+            border-bottom: black 1px solid;
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* Grid Layout for the form */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 20px;
+            padding: 20px 0;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Form Labels */
+        label.form-label {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* Form Inputs */
+        .form-control {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        /* Button Styles */
+        .footer {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .footer button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .save {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .save:hover {
+            background-color: #45a049;
+        }
+
+        .cancel {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .cancel:hover {
+            background-color: #e53935;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content {
+                width: 95%;
+            }
+        }
+
