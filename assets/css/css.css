@@ -102,7 +102,23 @@
                 background-color: #f4ededef;
                 color: black;
             }
-
+            /* search engine css */
+            .search-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+    
+            .search-box {
+                margin-left: auto;
+            }
+    
+            .search-input {
+                padding: 8px;
+              
+                font-size: 14px;
+            }
             /* Responsive Adjustments */
             @media (max-width: 768px) {
                 .content-container {
