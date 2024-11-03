@@ -40,8 +40,8 @@ while ($row = mysqli_fetch_array($result)) {
 
 if (empty($check)) {
     // Insert the new student if no matching LRN is found
-    $sql = "INSERT INTO `student` (firstname, middlename, lastname, suffix, gender, age, address, contact, birthdate, birthplace, nationality, religion, father_name, father_occupation, father_contact, mother_name, mother_occupation, mother_contact, guardian_name, guardian_contact, es_name, es_address, ey_graduate, email, grade_lvl, lrn) 
-            VALUES ('$first_name', '$middle_name', '$last_name', '$suffix', '$gender', '$age', '$address', '$contact_number', '$birthdate', '$birthplace', '$nationality', '$religion', '$father_name', '$father_occupation', '$father_contact', '$mother_name', '$mother_occupation', '$mother_contact', '$guardian_name', '$guardian_contact', '$elementary_name', '$elementary_address', '$elementary_year', '$email', '$grade_level', '$lrn_number')";
+    $sql = "INSERT INTO `student` (firstname, middlename, lastname, suffix, gender, age, address, contact, birthdate, birthplace, nationality, religion, father_name, father_occupation, father_contact, mother_name, mother_occupation, mother_contact, guardian_name, guardian_contact, es_name, es_address, ey_graduate, email, grade_lvl, lrn, del_status) 
+            VALUES ('$first_name', '$middle_name', '$last_name', '$suffix', '$gender', '$age', '$address', '$contact_number', '$birthdate', '$birthplace', '$nationality', '$religion', '$father_name', '$father_occupation', '$father_contact', '$mother_name', '$mother_occupation', '$mother_contact', '$guardian_name', '$guardian_contact', '$elementary_name', '$elementary_address', '$elementary_year', '$email', '$grade_level', '$lrn_number', 'active')";
 
     if (mysqli_query($conn, $sql)) {
         header("Location: index.php?message=Success! Saved successfully.");

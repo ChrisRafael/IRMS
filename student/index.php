@@ -10,19 +10,8 @@
     <!-- Include jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="'../assets/js/jquery-3.5.1.js">
-    
-    <script>
-        $(document).ready(function(){
-            // Search functionality
-            $("#MyModal").on("keyup", function(){
-                var value = $(this).val().toLowerCase();
-                $("#example tbody tr").filter(function(){
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-                });
-            });
-        });
-    </script>
-</head>
+    <script src="../assets/js/search.js"></script>
+    </head>
 <style>
 
 </style>
@@ -74,7 +63,7 @@
                 </td>
                 <td><?php echo $row['grade_lvl']; ?></td>
                 <td class="action">
-                    <a class="view" href="edit.php?id=<?php echo $row['id']; ?>">View</a>
+                    <a class="view" href="view.php?id=<?php echo $row['id']; ?>">Detials</a>
                 </td>
             </tr>
             <?php } ?>

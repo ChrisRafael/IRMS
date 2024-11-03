@@ -12,7 +12,7 @@ include '../database/db.php';  // Include your database connection
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
         <link rel="stylesheet" href="boostrap/boostcss/boostrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="boostrap/font-awesome/font-awesome.css">
+        <link rel="stylesheet" href="../boostrap/font-awesome/font-awesome.css">
         <title>Dashboard</title>
         <link rel="icon" type="image/x-icon" href="file_index/image/jhslogo.png">
         <style>

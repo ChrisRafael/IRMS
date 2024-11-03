@@ -53,27 +53,12 @@
                     <td><?php // echo $row['email']; ?></td> <!-- Display email -->
                     <td><?php // echo $row['lrn_number']; ?></td> <!-- Display LRN Number -->
                     <td class="action">
-                        <a class="view" href="edit.php?id=<?php // echo $row['id']; ?>">View</a>
+                        <a class="view" href="account.php?id=<?php // echo $row['id']; ?>">View</a>
                     </td>
                 </tr>
                 <?php // } ?>
             </tbody>
         </table>
-        <div class="">
-            <?php 
-         /*   $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
-            switch ($page) {
-                case 'add':
-                    include 'index/student/add.php';
-                    break;
-                default:
-                echo '';
-                break;
-            } */
-
-            ?>
-        </div>
-
     </div>
 
     </body>

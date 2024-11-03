@@ -143,7 +143,7 @@
                     <a href="../profile/" class="<?php if ($page == 'profile') {echo 'active';} ?>">&nbsp;<i class="bi bi-person-lines-fill"></i>&nbsp;Profile</a>
                     </li>
                     <li>
-                    <a href="../cashier/" class="<?php if ($page == 'casheir') {echo 'active';} ?>">&nbsp;<i class="bi bi-wallet-fill"></i>&nbsp;Cashier</a>
+                    <a href="../casheir/" class="<?php if ($page == 'casheir') {echo 'active';} ?>">&nbsp;<i class="bi bi-wallet-fill"></i>&nbsp;Cashier</a>
                     </li>
 
 

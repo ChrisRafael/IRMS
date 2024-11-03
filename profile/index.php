@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Profile</title>
         <link rel="stylesheet" href="../assets/css/css.css">
-        <link rel="icon" type="image/x-icon" href="../file_index/image/jhslogo.png">
+        <link rel="icon" type="image/x-icon" href="../file_index/image/jhslogo.png">    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="'../assets/js/jquery-3.5.1.js">
 
     </head>
     <body>
@@ -16,6 +18,7 @@
         include "../database/db.php";  // Include your database connection
     ?>
 
+    <script src="../assets/js/search.js"></script>
 
     <div class="content">
         <h1>Student List</h1>
@@ -23,16 +26,17 @@
         <div class="search-box">
 
             <a href="student-add.php?page=student" class=""><button>Add Student</button></a>
-        </div>
+        </div>  
+         <div class="MyModal">
+             <label for="search-item">
+                 Search
+                 <input type="text" id="MyModal" name="search" placeholder="Search..." class="search-input">
+             </label>
+         </div>
+
 
         <!-- Student Table -->
         <table id="example" class="data list">
-            <div class="">
-                <label for="">
-                    search
-                <input type="text" name="query" placeholder="Search..." class="search-input">
-                </label>
-            </div>
 
             <thead>
                 <tr>

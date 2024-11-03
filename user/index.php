@@ -5,9 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="../file_index/image/jhslogo.png">
         <link rel="stylesheet" href="../assets/css/css.css">
+            <!-- Include jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="'../assets/js/jquery-3.5.1.js">
+
         <title>User</title>
 
     </head>
+    <script>
+        $(document).ready(function(){
+            // Search functionality
+            $("#MyModal").on("keyup", function(){
+                var value = $(this).val().toLowerCase();
+                $("#example tbody tr").filter(function(){
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
+    </script>
+
+
     <body>
 
     <?php
@@ -26,6 +43,13 @@
 
         <a href="add.php?page=user" class=""><button>Add User</button></a>
         </div>
+        <div class="MyModal">
+        <label for="search-item">
+            Search
+            <input type="text" id="MyModal" name="search" placeholder="Search..." class="search-input">
+        </label>
+        </div>
+
 
         <!-- Student Table -->
         <table id="example" class="data list">
@@ -38,7 +62,7 @@
                     <th style="width: 55px;">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="">
                 <?php
 
                 // Fetch user data from the database
@@ -47,7 +71,7 @@
                 while ($row = mysqli_fetch_array($squery)) {
                 
                 ?>
-                <tr class="table-row">
+                <tr class="table-row" >
                     <td><?php  echo $row ['id']; ?></td>
                     <td><?php   echo $row['name']; ?></td>
                     <td><?php  echo $row['username']; ?></td>
