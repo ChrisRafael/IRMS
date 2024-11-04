@@ -162,23 +162,23 @@
         <div class="card">
         <a href="index.php?page=user" class=""><i class="fa-regular fa-circle-left"></i> </a>
         </div>
-        <form class="row g-3" action="../user/create.php" method="post">
-           <h3>Subject Information</h3>
+        <form class="row g-3" action="..casheir/create.php?id=<?php echo $row['id']?>" method="post">
+           <h3>Down Payment</h3>
             <div class="grid-container grid-container--fill">
                 <div class="grid-item">
-                    <label class="form-label">Down Payment<span class="required">*</span></label>
-                    <input type="text" class="form-control" id="name" name="name" required>
+                    <label class="form-label">Student Name<span class="required">*</span></label>
+                    <input type="text" class="form-control" id="student_id" name="student_id" required>
                 </div>
 
                 <div class="grid-item">
                     <label class="form-label">Amount</label>
-                    <input type="text" class="form-control" id="code" name="code">
+                    <input type="text" class="form-control" id="amount" name="amount">
+                </div>
+                <div class="grid-item">
+                    <label class="form-label">Date</label>
+                    <input type="text" class="form-control" id="pay_day" name="pay_day">
                 </div>
 
-                <div class="grid-item">
-                    <label class="form-label">Student Name<span class="required">*</span></label>
-                    <input type="text" class="form-control" id="code" name="code">
-                </div>
             </div>
 
             <div class="footer">
