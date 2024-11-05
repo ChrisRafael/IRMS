@@ -6,6 +6,10 @@
         <title>Account</title>
         <link rel="stylesheet" href="../assets/css/css.css">
         <link rel="icon" type="image/x-icon" href="../file_index/image/jhslogo.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="'../assets/js/jquery-3.5.1.js">
+        <script src="../assets/js/search.js"></script>
+
 
     </head>
     <body>
@@ -23,6 +27,13 @@
         <div class="search-box">
 
         </div>
+        <div class="MyModal">
+        <label for="search-item">
+            Search
+            <input type="text" id="MyModal" name="search" placeholder="Search..." class="search-input">
+        </label>
+        </div>
+
 
         <!-- Student Table -->
         <table id="example" class="data list">
@@ -48,11 +59,11 @@
                     FROM student s
                     LEFT JOIN downpayment d ON d.student_id = s.id 
                     WHERE s.del_status != 'deleted' 
-                    ORDER BY s.id;            ");  
+                    ORDER BY s.id;  "
+                ); 
+                while ($row = mysqli_fetch_array($squery)) { 
+ 
              ?>  
-             <?php 
-                 while ($row = mysqli_fetch_array($squery)) { 
-                 ?>
                 <tr class="table-row">
                     <td><?php echo $row['id']; ?></td>
                     <td>

@@ -130,7 +130,8 @@
 <div class="main-contianer">
         <!-- Sidebar -->
         <div class="side-contianer">
-            <div class="side-bar">
+                    <div class="side-bar">
+                
                 <ul class="selection">
                     <!-- Dashboard -->
                     <li class="" >
@@ -143,7 +144,7 @@
                     <a href="../profile/" class="<?php if ($page == 'profile') {echo 'active';} ?>">&nbsp;<i class="bi bi-person-lines-fill"></i>&nbsp;Profile</a>
                     </li>
                     <li>
-                    <a href="../casheir/" class="<?php if ($page == 'casheir') {echo 'active';} ?>">&nbsp;<i class="bi bi-wallet-fill"></i>&nbsp;Cashier</a>
+                    <a href="../casheir/" class="<?php if ($page == 'casheir') {echo 'active';} ?>">&nbsp;<i class="bi bi-wallet-fill"></i>&nbsp;Payment</a>
                     </li>
 
 

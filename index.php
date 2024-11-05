@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="google" value="notranslate" />
-    <link rel="icon" type="image/x-icon" href="../file_index/image/jhslogo.png">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="file_index/image/jhslogo.png">
     <title>Login Page</title>
     <style>
         /* General Styles */
@@ -88,6 +87,9 @@
             <label>Password:</label>
             <input type="password" class="form-control" id="password" name="password" required>
             <button type="button" id="togglePassword">Show</button>
+            <?php if (isset($_GET['error'])): ?>
+            <p style="color: red;text-align:center;"><?php echo $_GET['error']; ?></p>
+            <?php endif; ?>
 
             <div class="footer">
                 <button type="submit">Login</button>

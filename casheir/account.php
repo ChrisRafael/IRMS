@@ -155,28 +155,50 @@
 <?php
         $page = 'casheir';
         include '../navbar.php'; // Include this template code
-    ?>
+        include "../database/db.php";  // Include your database connection
+        
+        // Check if 'id' is passed in the URL
+    if (isset($_GET['id'])) {
+        $student_id = $_GET['id'];
+
+        // Query to fetch student name and downpayment details
+        $query = mysqli_query($conn, "
+            SELECT s.id, CONCAT(s.firstname, ' ', s.lastname) AS student_name, 
+                   d.amount, d.pay_date
+            FROM downpayment d
+            LEFT JOIN student s ON d.student_id = s.id
+            WHERE s.id = '$student_id'
+            LIMIT 1
+        ");
+
+
+    } 
+    $row = mysqli_fetch_assoc($query); // Fetch the row data here
+?>
+
+    
 
 
     <div class="content">
         <div class="card">
         <a href="index.php?page=user" class=""><i class="fa-regular fa-circle-left"></i> </a>
         </div>
-        <form class="row g-3" action="..casheir/create.php?id=<?php echo $row['id']?>" method="post">
+        <form class="row g-3" action="../casheir/create.php" method="post">
            <h3>Down Payment</h3>
             <div class="grid-container grid-container--fill">
                 <div class="grid-item">
                     <label class="form-label">Student Name<span class="required">*</span></label>
-                    <input type="text" class="form-control" id="student_id" name="student_id" required>
+                    <input type="text" class="form-control" id="student_id" name="student_id" value="<?php echo $student_id; ?>" required>
+
                 </div>
 
                 <div class="grid-item">
                     <label class="form-label">Amount</label>
-                    <input type="text" class="form-control" id="amount" name="amount">
+                    <input type="text" class="form-control" id="amount" name="amount" value="<?php echo htmlspecialchars($row['amount'] ?? ''); ?>">
                 </div>
                 <div class="grid-item">
                     <label class="form-label">Date</label>
-                    <input type="text" class="form-control" id="pay_day" name="pay_day">
+                    <input type="date" class="form-control" id="pay_date" name="pay_date" value="<?php echo htmlspecialchars($row['pay_date'] ?? ''); ?>">
                 </div>
 
             </div>
