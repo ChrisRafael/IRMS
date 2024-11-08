@@ -1,6 +1,15 @@
 <?php
 include '../database/db.php';  // Include your database connection file
 
+// Define the validation functions if they are not already defined
+function validateName($name) {
+    return preg_match("/^[a-zA-Z]+$/", $name); // Only letters allowed
+}
+
+function validateNumber($number) {
+    return preg_match("/^[0-9]+$/", $number); // Only numbers allowed
+}
+
 // Retrieve and sanitize form inputs
 $first_name = trim($_POST['first_name']);
 $middle_name = trim($_POST['middle_name']);
@@ -28,6 +37,18 @@ $elementary_year = $_POST['elementary_year'];
 $email = trim($_POST['email']);
 $lrn_number = trim($_POST['lrn_number']);
 $grade_level = $_POST['grade_level'];
+
+// Validate names
+if (!validateName($first_name) || !validateName($last_name) || ($middle_name && !validateName($middle_name))) {
+    header("Location: student-add.php?message=Error! Names must contain only letters.");
+    exit;
+}
+
+// Validate LRN number
+if (!validateNumber($lrn_number)) {
+    header("Location: student-add.php?message=Error! LRN Number must contain only numbers.");
+    exit;
+}
 
 // Check if LRN already exists
 $squery = "SELECT * FROM student WHERE lrn = '$lrn_number'";

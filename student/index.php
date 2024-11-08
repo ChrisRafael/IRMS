@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Student  </title>
     <link rel="stylesheet" href="../assets/css/css.css">
     <link rel="icon" type="image/x-icon" href="../file_index/image/jhslogo.png">
     
@@ -24,6 +24,10 @@
 ?>
 
 <div class="content">
+<?php if (isset($_GET['message'])): ?>
+        <p style="color: red;"><?php echo $_GET['message']; ?></p>
+    <?php endif; ?>
+
     <h1>Student List</h1>
     <!-- Add Button -->
     <div class="search-box">

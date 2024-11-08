@@ -15,39 +15,63 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #e9ecef;
         }
 
         .content {
-            width: 300px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            justify-content: center;
+            width: 350px;
+            background-color:#ffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .img img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #555;
+            font-size: 2em;
+            margin-bottom: 25px;
         }
 
         .form-control {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            font-size: 14px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 15px;
         }
 
         .form-control:focus {
             outline: none;
             border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.4);
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         .footer button {
-            padding: 10px 20px;
-            font-size: 16px;
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
             background-color: #4CAF50;
             color: white;
+            transition: background-color 0.3s ease;
         }
 
         .footer button:hover {
@@ -55,40 +79,35 @@
         }
 
         #togglePassword {
-            font-size: 12px;
+            font-size: 0.9em;
             color: #4CAF50;
             cursor: pointer;
             background: none;
             border: none;
-            padding: 0;
             margin-top: -8px;
-            margin-left: auto;
-            display: block;
+            display: inline-block;
             text-align: right;
+            margin-bottom: 15px;
         }
+
     </style>
 </head>
 
-
-
 <body>
     <div class="content">
-        <h3>Login</h3>
+        <div class="column">
+        <div class="img">
+            <img src="file_index/image/jhslogo.png" alt="Logo">
+        </div>
+        <div class="description">Enrollment Management System</div>
 
-
-
-
-        <form class="row g-3" action="login.php" method="post">
-            <?php
-            ?>
-            <label>Username:</label>
-            <input type="text" class="form-control" name="username" required>
-
-            <label>Password:</label>
-            <input type="password" class="form-control" id="password" name="password" required>
+        </div> 
+        <form action="login.php" method="post" class="login">
+            <input type="text" class="form-control" name="username" placeholder="Username" required>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
             <button type="button" id="togglePassword">Show</button>
             <?php if (isset($_GET['error'])): ?>
-            <p style="color: red;text-align:center;"><?php echo $_GET['error']; ?></p>
+            <p class="error-message"><?php echo $_GET['error']; ?></p>
             <?php endif; ?>
 
             <div class="footer">

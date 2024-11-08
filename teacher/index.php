@@ -28,7 +28,7 @@
     <body>
 
     <?php
-        $page = 'user';
+        $page = 'teacher';
         include '../navbar.php'; // Include this template code
         include "../database/db.php";  // Include your database connection
 
@@ -41,7 +41,7 @@
         <!-- Add Button -->
         <div class="search-box">
 
-        <a href="add.php?page=user" class=""><button>Add User</button></a>
+        <a href="add.php?page=teacher" class=""><button>Add User</button></a>
         </div>
         <div class="MyModal">
         <label for="search-item">
@@ -66,19 +66,19 @@
 
                 // Fetch user data from the database
                 
-                $squery = mysqli_query($conn, "SELECT * FROM user WHERE del_status != 'deleted' ORDER BY id DESC;");
-                while ($row = mysqli_fetch_array($squery)) {
+               // $squery = mysqli_query($conn, "SELECT * FROM user WHERE del_status != 'deleted' ORDER BY id DESC;");
+              //  while ($row = mysqli_fetch_array($squery)) {
                 
                 ?>
                 <tr class="table-row" >
-                    <td><?php  echo $row ['id']; ?></td>
-                    <td><?php   echo $row['name']; ?></td>
-                    <td><?php  echo $row['username']; ?></td>
+                    <td><?php // echo $row ['id']; ?></td>
+                    <td><?php  // echo $row['name']; ?></td>
+                    <td><?php  //echo $row['username']; ?></td>
                     <td class="action">
-                        <a class="view" href="edit.php?id=<?php  echo $row['id']; ?>">View</a>
+                        <a class="view" href="edit.php?id=<?php // echo $row['id']; ?>">View</a>
                     </td>
                 </tr>
-                <?php  } ?>
+                <?php // } ?>
                 
             </tbody>
         </table>

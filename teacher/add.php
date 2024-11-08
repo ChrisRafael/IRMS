@@ -10,7 +10,7 @@
 
 
 
-    <title>Add User</title>
+    <title>Add Teacher</title>
 </head>
 
 <style>
@@ -117,7 +117,7 @@
 </style>
 <body>
 <?php
-        $page = 'user';
+        $page = 'teacher';
         include '../navbar.php'; // Include this template code
     ?>
 
@@ -128,7 +128,15 @@
             <h3>User Information</h3>
             <div class="grid-container grid-container--fill">
                 <div class="grid-item">
-                    <label class="form-label">Name:</label>
+                    <label class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" >
+                </div>
+                <div class="grid-item">
+                    <label class="form-label">Middle Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" >
+                </div>
+                <div class="grid-item">
+                    <label class="form-label">Last Name:</label>
                     <input type="text" class="form-control" id="name" name="name" >
                 </div>
                 <div class="grid-item">
@@ -138,7 +146,7 @@
             </div>
             <div class="grid-container grid-container--fill">
                 <div class="grid-item">
-                    <label class="form-label">Suffix:</label>
+                    <label class="form-label">Username:</label>
                     <input type="text" class="form-control" id="role" name="role" >
                 </div>
                 <div class="grid-item">

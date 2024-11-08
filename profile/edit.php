@@ -273,7 +273,7 @@
                 <div class="grid-item">
                     <label class="form-label">Grade Level</label>
                     <select name="grade_level" class="form-control" value="" required style="height:43px;">
-                            <option hidden value="<?php echo ($row['grade_lvl']); ?>" hidden>Select Grade Level</option> 
+                            <option hidden value="<?php echo ($row['grade_lvl']); ?>" hidden><?php echo ($row['grade_lvl']); ?></option> 
                             <option value="7">Grade 7</option>
                             <option value="8">Grade 8</option>
                             <option value="9">Grade 9</option>

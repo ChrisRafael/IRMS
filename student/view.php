@@ -10,6 +10,30 @@
 
     <title>Add Student</title>
 </head>
+<style>
+        .card{
+            padding:4px;
+            margin-left: 0;
+            margin-right:0;
+            width: 2rem; 
+            text-align:center;
+            margin-bottom:50px;
+        
+        
+        }
+
+        .card a{
+            text-decoration:none;
+            color:black;
+        }
+        .card i {
+            margin-left: 0;
+            font-size: 30px; /* Adjust the size as needed */
+            display: block; /* Ensures icons are centered within the card */
+        }
+
+</style>
+
 <body>
 <?php
         $page = 'student';
@@ -31,11 +55,10 @@
             while ($row = mysqli_fetch_array ($squery)) {
                 # code...
             ?>
-                <div class="footer">
-                <a href="../student/index.php"><button class="cancel" type="button">Cancel</button></a>
-            </div>
 
-            <div class=""><i class="fa-solid fa-arrow-left"></i></div>
+        <div class="card">
+        <a href="index.php?page=student" class=""><i class="fa-regular fa-circle-left"></i> </a>
+        </div>
             <div class="image" id="image">
                 <img src="../../assets/img/default.jpeg" alt="">
                 <input type="text" hidden name="imageValue" value="default.jpeg">
@@ -194,7 +217,6 @@
             </div>
             <!-- User Information Display -->
             <div class="footer">
-                <button class="save" type="submit">Update</button>
                 <a href="delete.php?id=<?php echo $row['id']; ?> " ><button class="cancel" type="button">Delete</button></a>
             </div>
             <?php }?>

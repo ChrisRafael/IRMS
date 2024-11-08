@@ -7,10 +7,35 @@
     <meta name="google" value="notranslate" />
     <link rel="icon" type="image/x-icon" href="../file_index/image/jhslogo.png">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../boostrap/font-awesome/font-awesome.css">
+
 
     <title>Add Student</title>
 </head>
+<style>
+        .card{
+            padding:4px;
+            margin-left: 0;
+            margin-right:0;
+            width: 2rem; 
+            text-align:center;
+            margin-bottom:50px;
+        
+        
+        }
 
+        .card a{
+            text-decoration:none;
+            color:black;
+        }
+        .card i {
+            margin-left: 0;
+            font-size: 30px; /* Adjust the size as needed */
+            display: block; /* Ensures icons are centered within the card */
+        }
+
+</style>
 <body>
     <?php 
     
@@ -27,10 +52,14 @@
         </div>
 
         <form class="row g-3" action="../student/create.php" method="post">
-            <div class=""><i class="fa-solid fa-arrow-left"></i></div>
+        <div class="card">
+        <a href="index.php?page=student" class=""><i class="fa-regular fa-circle-left"></i> </a>
+        </div>
             <div class="image" id="image">
-                <img src="../../assets/img/default.jpeg" alt="">
-                <input type="text" hidden name="imageValue" value="default.jpeg">
+            <?php if (isset($_GET['message'])): ?>
+                    <p style="color: red;text-align:left;"><?php echo $_GET['message']; ?></p>
+                    <?php endif; ?>
+
             </div>
 
             <h3>Personal Information</h3>
@@ -44,13 +73,11 @@
                 <div class="grid-item">
                     <label class="form-label">Middle Name</label>
                     <input type="text" class="form-control" id="middleName" name="middle_name">
-                    <p class="error-message"></p>
                 </div>
 
                 <div class="grid-item">
                     <label class="form-label">Last Name<span class="required">*</span></label>
                     <input type="text" class="form-control" id="last_name" name="last_name" required>
-                    <p class="error-message"></p>
                 </div>
 
                 <div class="grid-item">
@@ -194,6 +221,7 @@
                 <div class="grid-item">
                     <label class="form-label">LRN Number<span class="required">*</span></label>
                     <input type="text" class="form-control" name="lrn_number" required>
+
                     <p class="error-message"></p>
                 </div>
 

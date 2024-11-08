@@ -23,10 +23,6 @@
     <div class="content">
         <h1>Student List</h1>
         <!-- Add Button -->
-        <div class="search-box">
-
-            <a href="student-add.php?page=student" class=""><button>Add Student</button></a>
-        </div>  
          <div class="MyModal">
              <label for="search-item">
                  Search

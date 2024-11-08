@@ -96,16 +96,6 @@
             background-color: #e53935;
         }
 
-        .card{
-            padding:4px;
-            margin-left: 0;
-            margin-right:0;
-            width: 2rem; 
-            text-align:center;
-            margin-bottom:50px;
-        
-        
-        }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -117,13 +107,13 @@
 </style>
 <body>
 <?php
-        $page = 'user';
+        $page = 'encode';
         include '../navbar.php'; // Include this template code
     ?>
 
 
     <div class="content">
-        <a href="index.php?page=user" class=""> <i class="fa-solid fa-arrow-left"></i>  </a>
+        <a href="" class="">Back <i class="fa-solid fa-arrow-left"></i>  </a>
         <form class="row g-3" action="../user/create.php" method="post">
             <h3>User Information</h3>
             <div class="grid-container grid-container--fill">
@@ -138,7 +128,7 @@
             </div>
             <div class="grid-container grid-container--fill">
                 <div class="grid-item">
-                    <label class="form-label">Suffix:</label>
+                    <label class="form-label">Role:</label>
                     <input type="text" class="form-control" id="role" name="role" >
                 </div>
                 <div class="grid-item">

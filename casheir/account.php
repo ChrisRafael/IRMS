@@ -1,31 +1,3 @@
-<!--            <h3>Subject Information</h3>
-            <div class="grid-container grid-container--fill">
-                <div class="grid-item">
-                    <label class="form-label">Down Payment<span class="required">*</span></label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                </div>
-
-                <div class="grid-item">
-                    <label class="form-label">Amount</label>
-                    <input type="text" class="form-control" id="code" name="code">
-                </div>
-
-                <div class="grid-item">
-                    <label class="form-label">Student Name<span class="required">*</span></label>
-                    <select name="teacher_id" class="form-control" required style="height:43px;">
-                        <option value="" hidden>Grade Level</option>
-                        <?php// while($teacher = mysqli_fetch_assoc($teachers_query)): ?>
-                            <option value="<?php //echo $teacher['id']; ?>"><?php //echo $teacher['full_name']; ?></option>
-                        <?php // endwhile; ?>
-                    </select>
-                </div>
-            </div>
-
-            <div class="footer">
-                <button class="save" type="submit">Save</button>
-                <a href="./"><button class="cancel" type="button">Cancel</button></a>
-            </div>
-                        -->
             
 
 <!DOCTYPE html>
@@ -188,13 +160,13 @@
             <div class="grid-container grid-container--fill">
                 <div class="grid-item">
                     <label class="form-label">Student Name<span class="required">*</span></label>
-                    <input type="text" class="form-control" id="student_id" name="student_id" value="<?php echo $student_id; ?>" required>
+                    <input type="text" class="form-control" id="student_id" name="student_id" value="<?php echo $student_id; ?><?php echo htmlspecialchars($row['student_name'] ?? ''); ?>" required>
 
                 </div>
 
                 <div class="grid-item">
                     <label class="form-label">Amount</label>
-                    <input type="text" class="form-control" id="amount" name="amount" value="<?php echo htmlspecialchars($row['amount'] ?? ''); ?>">
+                    <input type="text" class="form-control" id="amount" name="amount" value="P<?php echo htmlspecialchars($row['amount'] ?? ''); ?>">
                 </div>
                 <div class="grid-item">
                     <label class="form-label">Date</label>

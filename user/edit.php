@@ -101,6 +101,29 @@
         background-color:#550000;
     }
 
+    .card{
+            padding:4px;
+            margin-left: 0;
+            margin-right:0;
+            width: 2rem; 
+            text-align:center;
+            margin-bottom:50px;
+        
+        
+        }
+
+        .card a{
+            text-decoration:none;
+            color:black;
+        }
+        .card i {
+            margin-left: 0;
+            font-size: 30px; /* Adjust the size as needed */
+            display: block; /* Ensures icons are centered within the card */
+        }
+
+
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
         .content {
@@ -126,7 +149,9 @@
     ?>
 
     <div class="content">
-        <a href="index.php?page=user" class="">Back <i class="fa-solid fa-arrow-left"></i></a>
+        <div class="card">
+        <a href="index.php?page=user" class=""><i class="fa-regular fa-circle-left"></i> </a>
+        </div>
         <form class="row g-3" action="../user/update.php?id=<?php echo $row['id']?>" method="post">
             <h3>User Information</h3>
             <div class="grid-container grid-container--fill">
@@ -141,8 +166,8 @@
             </div>
             <div class="grid-container grid-container--fill">
                 <div class="grid-item">
-                    <label class="form-label">Role:</label>
-                    <input type="text" class="form-control" id="role" name="role" value="<?php echo ($row['role']); ?>" required>
+                    <label class="form-label">Suffix:</label>
+                    <input type="text" class="form-control" id="role" name="role" value="<?php echo ($row['role']); ?>" >
                 </div>
                 <div class="grid-item">
                     <label class="form-label">Password:</label>
