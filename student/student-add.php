@@ -14,25 +14,28 @@
     <title>Add Student</title>
 </head>
 <style>
-        .card{
+        .cards{
+            margin-right:auto;
             padding:4px;
             margin-left: 0;
             margin-right:0;
             width: 2rem; 
             text-align:center;
             margin-bottom:50px;
+            border:none;
         
         
         }
 
-        .card a{
+        .cards a{
             text-decoration:none;
             color:black;
         }
-        .card i {
+        .cards i {
             margin-left: 0;
             font-size: 30px; /* Adjust the size as needed */
             display: block; /* Ensures icons are centered within the card */
+        
         }
 
 </style>
@@ -52,7 +55,7 @@
         </div>
 
         <form class="row g-3" action="../student/create.php" method="post">
-        <div class="card">
+        <div class="cards">
         <a href="index.php?page=student" class=""><i class="fa-regular fa-circle-left"></i> </a>
         </div>
             <div class="image" id="image">

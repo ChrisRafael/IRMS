@@ -13,7 +13,7 @@
     <script src="[YOUR_KIT_CODE]" crossorigin="anonymous"></script>
 
 
-    <title>IRMS-Teacher</title>
+    <title>Student Profile</title>
 </head>
 
 <style>
@@ -60,6 +60,10 @@
         label.form-label {
             font-weight: bold;
             margin-bottom: 8px;
+        }
+
+        .required{
+            color:red;
         }
 
         /* Form Inputs */
@@ -157,15 +161,16 @@
 
                 <div class="grid-item">
                     <label class="form-label">Suffix</label>
-                    <input type="text" class="form-control" id="suffix" name="suffix" value="<?php echo ($row['suffix']); ?>">
+                    <input type="text" class="form-control" id="name" name="suffix" 
+                    value = "<?php echo $row['suffix']; ?>"  >
                 </div>
 
                 <div class="grid-item">
                     <label class="form-label">Gender<span class="required">*</span></label>
-                    <select name="gender" class="form-control" required  style="height:43px;">
-                        <option value="">Select Gender</option>
-                        <option  value="male" <?php echo $row['gender'] == 'male' ? 'selected' : ''; ?> name="gender">Male</option>
-                        <option  value="female" <?php echo $row['gender'] == 'female' ? 'selected' : ''; ?> name="gender">Female</option>
+                    <select name="gender" class="form-control" required style="height:43px;">
+                        <option hidden value="<?php echo $row['gender']; ?>"><?php echo $row['gender']; ?></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                 </div>
 

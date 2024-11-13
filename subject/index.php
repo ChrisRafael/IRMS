@@ -9,7 +9,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="'../assets/js/jquery-3.5.1.js">
 
-        <title>teacher</title>
+        <title>User</title>
 
     </head>
     <script>
@@ -28,7 +28,7 @@
     <body>
 
     <?php
-        $page = 'teacher';
+        $page = 'subject';
         include '../navbar.php'; // Include this template code
         include "../database/db.php";  // Include your database connection
 
@@ -36,12 +36,13 @@
 
 
     <div class="content">
-        <h1>Teacher List</h1>
+        <h1>User List</h1>
 
         <!-- Add Button -->
         <div class="search-box">
 
-        <a href="add.php?page=teacher" class=""><button>Add User</button></a>
+        <a href="add.php?page=user" class=""><button>Add Subject</button></a>
+        <a href="add.php?page=user" class=""><button>Asign Subject</button></a>
         </div>
         <div class="MyModal">
         <label for="search-item">
@@ -66,19 +67,19 @@
 
                 // Fetch user data from the database
                 
-                $squery = mysqli_query($conn, "SELECT * FROM teacher WHERE del_status != 'deleted' ORDER BY id DESC;");
-               while ($row = mysqli_fetch_array($squery)) {
+               /* $squery = mysqli_query($conn, "SELECT * FROM user WHERE del_status != 'deleted' ORDER BY id DESC;");
+                while ($row = mysqli_fetch_array($squery)) { */
                 
                 ?>
                 <tr class="table-row" >
-                    <td><?php echo $row ['id']; ?></td>
-                    <td><?php echo $row['first_name'] . " " . $row['last_name']; ?></td>
-                    <td><?php echo $row['username']; ?></td>
+                    <td><?php // echo $row ['id']; ?></td>
+                    <td><?php //  echo $row['name']; ?></td>
+                    <td><?php // echo $row['username']; ?></td>
                     <td class="action">
-                        <a class="view" href="edit.php?id=<?php echo $row['id']; ?>">View</a>
+                        <a class="view" href="edit.php?id=<?php // echo $row['id']; ?>">View</a>
                     </td>
                 </tr>
-                <?php  } ?>
+                <?php // } ?>
                 
             </tbody>
         </table>

@@ -17,71 +17,71 @@ include '../database/db.php';  // Include your database connection
         <title>Dashboard</title>
         <link rel="icon" type="image/x-icon" href="file_index/image/jhslogo.png">
         <style>
-            /* General Styles */
-            body {
-                background-color:#FAFAFA;
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
-
-            .content {
-            margin-left:auto;
-            width: 80%;
-            padding: 20px;
-        }
-        
-        .objective-act{
-         display: flex;
-         align-items: center;
-         padding: 20px;
-
-
-        }
-
-        .card{
-            background:white;
-            padding:6px;
-            margin-left: 20px;
-            width: 10rem;
-            text-align:center;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border:1px grey solid;
-        
-        
-        }
-        .card i, .card img {
-            font-size: 4rem;
-            color: #007bff;
-            padding-top: 15px;
-        }
-
-
-        .card-body{
-            border-top:grey 1px solid;
-            border:none;
-            text-align:left;
+                /* General Styles */
+                body {
+                    background-color:#FAFAFA;
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                }
             
-        }
-
-
-        .card p{
-            text-align:center;
-            margin: 0;
-            row-gap: 2px;
-            gap: 0;
-            padding: 0;
-
-        }
-
-
-        .bar-grap-1{
-            background:white;
-            padding:6px;
-            margin-left: 40px;
-            width: 30rem;
-            text-align:center;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border:1px grey solid;
-        }
+                .content {
+                margin-left:auto;
+                width: 80%;
+                padding: 20px;
+            }
+            
+            .objective-act{
+             display: flex;
+             align-items: center;
+             padding: 20px;
+            
+            
+            }
+        
+            .card{
+                background:white;
+                padding:6px;
+                margin-left: 20px;
+                width: 10rem;
+                text-align:center;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border:1px grey solid;
+            
+            
+            }
+            .card i, .card img {
+                font-size: 4rem;
+                color: #007bff;
+                padding-top: 15px;
+            }
+        
+        
+            .card-body{
+                border-top:grey 1px solid;
+                border:none;
+                text-align:left;
+                
+            }
+        
+        
+            .card p{
+                text-align:center;
+                margin: 0;
+                row-gap: 2px;
+                gap: 0;
+                padding: 0;
+            
+            }
+        
+        
+            .bar-grap-1{
+                background:white;
+                padding:6px;
+                margin-left: 40px;
+                width: 30rem;
+                text-align:center;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border:1px grey solid;
+            }
 
         </style>
     </head>
@@ -97,7 +97,7 @@ include '../database/db.php';  // Include your database connection
     <div class="objective-act">
               <!-- list 0f activity -->
               <div class="card">
-              <i class="fa-solid fa-graduation-cap"></i>
+              <i class="fa-solid fa-user-graduate"></i>
               <p class="card-text" style="text-align:center;">Student</p>
              <div class="card-body" style="border-top:grey 1px solid">
                    <p class="cards-text" style="font-size:20px; text-align:right; font-wieght:20px;">
@@ -122,10 +122,14 @@ include '../database/db.php';  // Include your database connection
                  </div>
               </div>
               <div class="card">
-              <i class="fa-solid fa-atom"></i>
-              <p class="cards-text">On Process...</p>
+              <i class="fa-solid fa-chalkboard-user"></i>             
+               <p class="cards-text">Teacher</p>
              <div class="card-body" style="border-top:grey 1px solid">
-                    <p class="card-text" style="font-size:20px; text-align:right; font-wieght:20px;">0</p>
+             <p class="cards-text" style="font-size:20px; text-align:right; font-wieght:20px;">
+                   <?php
+                    $squery =  mysqli_query($conn, "SELECT COUNT(id) AS total_student FROM `teacher` Where del_status != 'deleted'");
+                    while ($row = mysqli_fetch_array($squery)) { echo $row['total_student']; }
+                    ?>
              </div>
               </div>
               <div class="card">
@@ -138,60 +142,9 @@ include '../database/db.php';  // Include your database connection
             </div>
                 <div class="objective-act">
                         <!--graph-->
-                <div class="bar-graph">
-                    <form action="../student/create.php" method="post">
-                        
-                    <h6 style="text-align:center;">Student Gender</h6>
-
-                    <!-- Gender Distribution Chart -->
-                    <div class=""  style="width: 300px; height: 300px; margin: auto;">
-                    <canvas id="genderChart" ></canvas>
-                    </div>
-                    <script>
-                            <?php 
-                            include "../database/db.php";  // Include your database connection
-                            // Get the count of male and female students
-                            $maleCountQuery = "SELECT COUNT(*) AS male_count FROM student WHERE gender = 'Male'";
-                            $femaleCountQuery = "SELECT COUNT(*) AS female_count FROM student WHERE gender = 'Female'";
-
-                            $maleResult = mysqli_query($conn, $maleCountQuery);
-                            $femaleResult = mysqli_query($conn, $femaleCountQuery);
-
-                            $maleCount = mysqli_fetch_assoc($maleResult)['male_count'];
-                            $femaleCount = mysqli_fetch_assoc($femaleResult)['female_count'];
-
-                            ?>
-
-                        // PHP variables to JavaScript
-                        const maleCount = <?php echo $maleCount; ?>;
-                        const femaleCount = <?php echo $femaleCount; ?>;
-
-                        const ctx = document.getElementById('genderChart').getContext('2d');
-                        const genderChart = new Chart(ctx, {
-                            type: 'pie',
-                            data: {
-                                labels: ['Male', 'Female'],
-                                datasets: [{
-                                    data: [maleCount, femaleCount],
-                                    backgroundColor: ['#36A2EB', '#FF6384'],
-                                    hoverOffset: 4
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                plugins: {
-                                    legend: {
-                                        position: 'top',
-                                    },
-                                    tooltip: {
-                                        enabled: true
-                                    }
-                                }
-                            }
-                        });
-                    </script>
-                    </form>
-                </div>
+                <?php 
+                include ('../dashboard/grap.php');
+                ?>
 
                 </div>
         </div>

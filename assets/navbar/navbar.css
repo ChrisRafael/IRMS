@@ -1,0 +1,116 @@
+/* CSS styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar-header {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    background-color: #550000;
+    height: 50px;
+    justify-content: space-between;
+    border-bottom: 1px black solid;
+}
+.tittle-link {
+    padding: 12px 0px;
+    text-align: right;
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 18px;
+    margin-right: 10px;
+}
+.title-page {
+    padding: 12px 0px;
+    color: whitesmoke;
+    font-size: 18px;
+    text-align: left;
+}
+.image-logo {
+    width: 55px;
+    margin-left: 5px;
+}
+.main-container {
+    display: flex;
+}
+.side-container {
+    margin-top: 50px;
+    width: 20%;
+    height: 95vh;
+    background-color: ghostwhite;
+    border-right: 1px solid grey;
+    position: fixed;
+}
+.content-container {
+    margin-top: 50px;
+    margin-left: 20%;
+}
+
+.side-bar ul {
+    list-style-type: none;
+    padding: 5px;
+}
+.side-bar ul li a {
+    display: block;
+    color: black;
+    text-align: left;
+    margin: 5px 0;
+    padding: 14px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+.side-bar ul li a.active  {
+    background-color: #555;
+    color: white;
+}
+
+.side-bar ul li a:hover{
+    background-color: #555;
+    color: white;     
+}
+.dropdown-content {
+    display: none;
+    background-color: ghostwhite;
+    border-radius: 8px;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-button{
+   border:none; 
+    background-color: ghostwhite;
+    border-radius: 8px;
+    margin: 5px 0;
+    padding: 14px;
+
+}
+
+
+
+@media (max-width: 768px) {
+    .side-container {
+        height: auto;
+        position: static;
+    }
+    .content-container {
+        margin-left: 0;
+    }
+    .dropdown .dropbtn {
+        padding: 14px 20px;
+        text-align: center;
+    }
+    .dropdown-content {
+        position: relative;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-header {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+}
