@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">    
-    <script src="[YOUR_KIT_CODE]" crossorigin="anonymous"></script>
 
 
     <title>Student Profile</title>
@@ -168,7 +167,7 @@
                 <div class="grid-item">
                     <label class="form-label">Gender<span class="required">*</span></label>
                     <select name="gender" class="form-control" required style="height:43px;">
-                        <option hidden value="<?php echo $row['gender']; ?>"><?php echo $row['gender']; ?></option>
+                        <option hidden value="<?php echo $row['gender']; ?>"  hidden><?php echo $row['gender']; ?></option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>

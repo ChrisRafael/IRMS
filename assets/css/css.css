@@ -6,6 +6,7 @@
             }
 
             .content {
+            overflow: hidden;
             margin-left:auto;
             width: 80%;
             background-color: #fff;
@@ -122,7 +123,8 @@
             /* Responsive Adjustments */
             @media (max-width: 768px) {
                 .content-container {
-                    width: 95%;
+                    width: 80%;
+                    
                 }
 
                 .data th, .data td {

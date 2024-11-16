@@ -8,21 +8,14 @@
             <!-- Include jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="'../assets/js/jquery-3.5.1.js">
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+
 
         <title>User</title>
 
     </head>
-    <script>
-        $(document).ready(function(){
-            // Search functionality
-            $("#MyModal").on("keyup", function(){
-                var value = $(this).val().toLowerCase();
-                $("#example tbody tr").filter(function(){
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-                });
-            });
-        });
-    </script>
 
 
     <body>
@@ -43,13 +36,6 @@
 
         <a href="add.php?page=user" class=""><button>Add User</button></a>
         </div>
-        <div class="MyModal">
-        <label for="search-item">
-            Search
-            <input type="text" id="MyModal" name="search" placeholder="Search..." class="search-input">
-        </label>
-        </div>
-
 
         <!-- Student Table -->
         <table id="example" class="data list">
@@ -58,6 +44,7 @@
                     <th style="width: 60px;">ID</th>
                     <th>Name</th>
                     <th>User Name</th> <!-- Show email -->
+                    <th>Role</th> 
                     <th style="width: 55px;">Action</th>
                 </tr>
             </thead>
@@ -74,6 +61,7 @@
                     <td><?php  echo $row ['id']; ?></td>
                     <td><?php   echo $row['name']; ?></td>
                     <td><?php  echo $row['username']; ?></td>
+                    <td><?php  echo $row['role']; ?></td>
                     <td class="action">
                         <a class="view" href="edit.php?id=<?php  echo $row['id']; ?>">View</a>
                     </td>
@@ -84,6 +72,12 @@
         </table>
 
     </div>
+    <script>
+    new DataTable('#example', {
+    order: [[0, 'desc']]
+    });
+    </script>
+
 
     </body>
     </html>

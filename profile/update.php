@@ -4,6 +4,7 @@ include "../database/db.php";  // Include your database connection
 $firstname = mysqli_real_escape_string($conn, $_POST['first_name']);
 $middlename = mysqli_real_escape_string($conn, $_POST['middle_name']);
 $lastname = mysqli_real_escape_string($conn, $_POST['last_name']);
+$suffix = mysqli_real_escape_string($conn, $_POST['suffix']);
 $gender = mysqli_real_escape_string($conn, $_POST['gender']);
 $age = mysqli_real_escape_string($conn, $_POST['age']);
 $address = mysqli_real_escape_string($conn, $_POST['address']);
@@ -33,7 +34,7 @@ $sql = "UPDATE `student` SET
     `firstname` = '$firstname',
     `middlename` = '$middlename',
     `lastname` = '$lastname',
-    `suffix` = '$gender',
+    `suffix` = '$suffix',
     `gender` = '$gender',
     `age` = '$age',
     `address` = '$address',

@@ -138,8 +138,12 @@
             </div>
             <div class="grid-container grid-container--fill">
                 <div class="grid-item">
-                    <label class="form-label">Suffix:</label>
-                    <input type="text" class="form-control" id="role" name="role" >
+                    <label class="form-label">User level:</label>
+                    <select name="role" class="form-control" id="role" required style="height:43px;">
+                    <option hidden value="">Select Role</option> 
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                    </select>
                 </div>
                 <div class="grid-item">
                     <label class="form-label">Password:</label>

@@ -91,7 +91,7 @@
                 <div class="grid-item">
                     <label class="form-label">Gender<span class="required">*</span></label>
                     <select name="gender" class="form-control" required style="height:43px;">
-                        <option value="" >Select Gender</option>
+                        <option value="" hidden >Select Gender</option>
                         <option value="Male" name="gender">Male </option>
                         <option value="Female" name="gender">Female</option>
                     </select>

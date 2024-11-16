@@ -124,16 +124,28 @@
 
     <div class="content">
         <a href="index.php?page=user" class=""> <i class="fa-solid fa-arrow-left"></i>  </a>
-        <form class="row g-3" action="../" method="post">
+        <form class="row g-3" action="../subject/create.php" method="post">
             <h3>User Information</h3>
             <div class="grid-container grid-container--fill">
                 <div class="grid-item">
                     <label class="form-label">Subject</label>
-                    <input type="text" class="form-control" id="name" name="name" >
+                    <input type="text" class="form-control" id="subject" name="subject" >
                 </div>
                 <div class="grid-item">
                     <label class="form-label">Subject Code</label>
-                    <input type="text" class="form-control" id="username" name="username">
+                    <input type="text" class="form-control" id="subject_code" name="subject_code">
+                </div>
+            </div>
+            <div class="grid-container grid-container--fill">
+                <div class="grid-item">
+                    <label class="form-label">Grade level</label>
+                    <select name="grade_level" class="form-control" required style="height:43px;width:25%;">
+                            <option hidden value="" hidden>Select Grade Level</option> 
+                            <option value="7">Grade 7</option>
+                            <option value="8">Grade 8</option>
+                            <option value="9">Grade 9</option>
+                            <option value="10">Grade 10</option>
+                    </select>
                 </div>
             </div>
 

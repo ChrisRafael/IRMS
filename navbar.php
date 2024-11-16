@@ -15,6 +15,7 @@ $sql="SELECT * FROM user WHERE id='$id'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
 $name=$row['name'];
+$role = $row['role'];
  ?>
 <head>
     <meta charset="UTF-8">
@@ -53,7 +54,7 @@ $name=$row['name'];
                 <li><a href="../profile/" class="<?php if ($page == 'profile') echo 'active'; ?>">&nbsp;<i class="bi bi-person-lines-fill"></i> Profile</a></li>
                 <li><a href="../casheir/" class="<?php if ($page == 'casheir') echo 'active'; ?>">&nbsp;<i class="fa-solid fa-coins"></i> Payment</a></li>
                 <li><a href="../teacher/" class="<?php if ($page == 'teacher') echo 'active'; ?>">&nbsp;<i class="fa-solid fa-chalkboard-teacher"></i> Teacher</a></li>
-                <li><a href="../subject/" class="<?php if ($page == 'subject') echo 'active'; ?>">&nbsp;<i class="fa-solid fa-chalkboard-teacher"></i> Subject</a></li>
+                <li><a href="../subject/" class="<?php if ($page == 'subject') echo 'active'; ?>">&nbsp;<i class="fa-solid fa-book-open"></i> Subject</a></li>
                <!-- <li class="dropdown">
                     <a href="#" class="dropbtn">Record</a>
                     <ul class="dropdown-content">
@@ -61,8 +62,8 @@ $name=$row['name'];
                         <li><a href="#">File</a></li>
                     </ul>
                 </li> -->
-                <!-- dorpdown-->
-                <div class="dropdown">
+                <!-- dorpdown
+                                <div class="dropdown">
                   <button class="dropdown-button" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
                     Dropdown button
                   </button>
@@ -72,7 +73,13 @@ $name=$row['name'];
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                   </ul>
                 </div>
+ 
+                -->
+                <?php if ($role == "admin"){ ?>
+
                 <li><a href="../user/" class="<?php if ($page == 'user') echo 'active'; ?>">&nbsp;<i class="bi bi-person-circle"></i> User</a></li>
+
+                <?php } ?>
             </ul>
         </div>
     </div>

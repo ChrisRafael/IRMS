@@ -8,6 +8,9 @@
             <!-- Include jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="'../assets/js/jquery-3.5.1.js">
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
         <title>User</title>
 
@@ -42,23 +45,15 @@
         <div class="search-box">
 
         <a href="add.php?page=user" class=""><button>Add Subject</button></a>
-        <a href="add.php?page=user" class=""><button>Asign Subject</button></a>
         </div>
-        <div class="MyModal">
-        <label for="search-item">
-            Search
-            <input type="text" id="MyModal" name="search" placeholder="Search..." class="search-input">
-        </label>
-        </div>
-
 
         <!-- Student Table -->
         <table id="example" class="data list">
             <thead>
                 <tr>
                     <th style="width: 60px;">ID</th>
-                    <th>Name</th>
-                    <th>User Name</th> <!-- Show email -->
+                    <th>Subject</th>
+                    <th>Subject Code</th> <!-- Show email -->
                     <th style="width: 55px;">Action</th>
                 </tr>
             </thead>
@@ -67,24 +62,29 @@
 
                 // Fetch user data from the database
                 
-               /* $squery = mysqli_query($conn, "SELECT * FROM user WHERE del_status != 'deleted' ORDER BY id DESC;");
-                while ($row = mysqli_fetch_array($squery)) { */
+                $squery = mysqli_query($conn, "SELECT * FROM subject WHERE del_status != 'deleted' ORDER BY id DESC;");
+                while ($row = mysqli_fetch_array($squery)) { 
                 
                 ?>
                 <tr class="table-row" >
-                    <td><?php // echo $row ['id']; ?></td>
-                    <td><?php //  echo $row['name']; ?></td>
-                    <td><?php // echo $row['username']; ?></td>
+                    <td><?php echo $row ['id']; ?></td>
+                    <td><?php echo $row['subject']; ?></td>
+                    <td><?php echo $row['subject_code']; ?></td>
                     <td class="action">
-                        <a class="view" href="edit.php?id=<?php // echo $row['id']; ?>">View</a>
+                        <a class="view" href="edit.php?id=<?php // echo $row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                 </tr>
-                <?php // } ?>
+                <?php  } ?>
                 
             </tbody>
         </table>
 
     </div>
+    <script>
+    new DataTable('#example', {
+    order: [[0, 'desc']]
+    });
+    </script>
 
     </body>
     </html>

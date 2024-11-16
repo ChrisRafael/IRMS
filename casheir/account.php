@@ -118,7 +118,10 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .content {
-                width: 95%;
+                width: 80%;
+                display: flow-root;
+                top:0;
+                
             }
         }
 
@@ -128,24 +131,30 @@
         $page = 'casheir';
         include '../navbar.php'; // Include this template code
         include "../database/db.php";  // Include your database connection
+        if(isset($_GET['id'])) {
+            $student_id = $_GET['id'];
         
-        // Check if 'id' is passed in the URL
-    if (isset($_GET['id'])) {
-        $student_id = $_GET['id'];
-
-        // Query to fetch student name and downpayment details
-        $query = mysqli_query($conn, "
-            SELECT s.id, CONCAT(s.firstname, ' ', s.lastname) AS student_name, 
-                   d.amount, d.pay_date
-            FROM downpayment d
-            LEFT JOIN student s ON d.student_id = s.id
-            WHERE s.id = '$student_id'
-            LIMIT 1
-        ");
-
-
-    } 
-    $row = mysqli_fetch_assoc($query); // Fetch the row data here
+            // Fetch student details based on the passed ID
+            $query = "SELECT s.id, CONCAT(s.firstname, ' ', s.lastname) AS student_name, 
+                             d.amount, d.pay_date
+                      FROM student s
+                      LEFT JOIN downpayment d ON d.student_id = s.id
+                      WHERE s.id = '$student_id' AND s.del_status != 'deleted'";
+        
+            $result = mysqli_query($conn, $query);
+        
+            // Check if the student exists
+            if(mysqli_num_rows($result) > 0) {
+                $student = mysqli_fetch_assoc($result);
+            } else {
+                echo "Student not found.";
+                exit; // Stop if no student is found
+            }
+        } else {
+            echo "Invalid student ID.";
+            exit; // Stop if 'id' is not passed
+        }
+            
 ?>
 
     
@@ -155,22 +164,21 @@
         <div class="card">
         <a href="index.php?page=user" class=""><i class="fa-regular fa-circle-left"></i> </a>
         </div>
-        <form class="row g-3" action="../casheir/create.php" method="post">
+        <form class="row g-3" action="create.php?id=<?php echo $row['id']?>" method="post">
            <h3>Down Payment</h3>
             <div class="grid-container grid-container--fill">
-                <div class="grid-item">
-                    <label class="form-label">Student Name<span class="required">*</span></label>
-                    <input type="text" class="form-control" id="student_id" name="student_id" value="<?php echo $student_id; ?><?php echo htmlspecialchars($row['student_name'] ?? ''); ?>" required>
-
-                </div>
+            <div class="grid-item">
+                <label class="form-label">Student Name</label>
+                <input type="text" class="form-control" id="student_id" name="student_id" value="<?php echo $student['student_name']; ?>" readonly>
+            </div>
 
                 <div class="grid-item">
                     <label class="form-label">Amount</label>
-                    <input type="text" class="form-control" id="amount" name="amount" value="P<?php echo htmlspecialchars($row['amount'] ?? ''); ?>">
+                    <input type="text" class="form-control" id="amount" name="amount" value="P">
                 </div>
                 <div class="grid-item">
                     <label class="form-label">Date</label>
-                    <input type="date" class="form-control" id="pay_date" name="pay_date" value="<?php echo htmlspecialchars($row['pay_date'] ?? ''); ?>">
+                    <input type="date" class="form-control" id="pay_date" name="pay_date" value="">
                 </div>
 
             </div>
