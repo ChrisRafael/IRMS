@@ -198,7 +198,7 @@
 
             <div class="footer">
             <button class="save" type="submit">Update</button>
-            <a href="delete.php?id=<?php echo $row['id']; ?>"><button class="cancel" type="button">Delete</button></a>
+            <a href="delete.php?id=<?php echo $row['id']; ?> " ><button class="cancel" type="button">Delete</button></a>
             </div>
 
         </form>
