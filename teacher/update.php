@@ -12,18 +12,19 @@ $username = ($_POST['username']);
 $password = ($_POST['password']);
 $id = $_GET['id'];
 
-$sql ="UPDATE `teacher` SET 
+$sql = "UPDATE `teacher` SET 
 `first_name`='$first_name',
 `middle_name`='$middle_name',
-`last_name`='$last_name',a
+`last_name`='$last_name',
 `suffix`='$suffix',
 `gender`='$gender',
 `email`='$email',
-`contact_number`='$contact_number',
+`contact`='$contact_number',
 `username`='$username',
 `password`='$password'
 WHERE id = '$id'";
-mysqli_query($conn, $sql);
 
-header("location:index.php?message=Success! Changes has been saved successfully.");
+mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+header("location:index.php?message=Success! Changes have been saved successfully.");
 ?>

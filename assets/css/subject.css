@@ -1,0 +1,100 @@
+            /* General Styles */
+            body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .content {
+            width: 80%;
+            margin-left:auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* Grid Layout for the form */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 20px;
+            padding: 20px 0;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Form Labels */
+        label.form-label {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* Form Inputs */
+        .form-control {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        /* Button Styles */
+        .footer {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .footer button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .save {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .save:hover {
+            background-color: #45a049;
+        }
+
+        .cancel {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .cancel:hover {
+            background-color: #e53935;
+        }
+
+        .card{
+            padding:4px;
+            margin-left: 0;
+            margin-right:0;
+            width: 2rem; 
+            text-align:center;
+            margin-bottom:50px;
+        
+        
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content {
+                width: 95%;
+            }
+        }
+

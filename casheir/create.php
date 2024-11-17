@@ -1,31 +1,45 @@
 <?php
-// Make sure to establish the database connection
-    include "../database/db.php";  // Include your database connection
+// Include your database connection
+include "../database/db.php";
 
 $student_id = trim($_POST['student_id']);
 $amount = $_POST['amount'];
-$pay_date = $_POST['pay_date']; // Use a valid key name here
+$pay_date = $_POST['pay_date'];
 
-// Query to check if a record with the same student_id and amount already exists
-$squery = "SELECT * FROM `downpayment` WHERE `student_id` = '$student_id' AND `amount` = '$amount'";
+// Validate inputs
+if (empty($student_id) || empty($amount) || empty($pay_date)) {
+    header("Location: account.php?message=Error: All fields are required.");
+    exit;
+}
+
+// Query to check for an existing record
+$squery = "SELECT * FROM `downpayment` WHERE `student_id` = '$student_id' AND `del_status` != 'deleted'";
 $result = mysqli_query($conn, $squery);
 
-// Check if a matching record was found
-if (mysqli_num_rows($result) == 0) {
-    // Insert the new downpayment if no matching record is found
-    $sql = "INSERT INTO `downpayment` (`student_id`, `amount`, `pay_date`) 
-            VALUES ('$student_id', '$amount', '$pay_date')";
+if (mysqli_num_rows($result) > 0) {
+    // Update the existing record
+    $update_query = "UPDATE `downpayment` 
+                     SET `amount` = '$amount', `pay_date` = '$pay_date' 
+                     WHERE `student_id` = '$student_id' AND `del_status` != 'deleted'";
 
-    if (mysqli_query($conn, $sql)) {
-        header("Location: index.php?message=Success! Saved successfully.");
+    if (mysqli_query($conn, $update_query)) {
+        header("Location: index.php?message=Success! Payment updated successfully.");
+        exit;
+    } else {
+        header("Location: account.php?message=Error: Unable to update payment.");
+        exit;
+    }
+} else {
+    // Insert a new record if none exists
+    $insert_query = "INSERT INTO `downpayment` (`student_id`, `amount`, `pay_date`, `del_status`) 
+                     VALUES ('$student_id', '$amount', '$pay_date', 'active')";
+
+    if (mysqli_query($conn, $insert_query)) {
+        header("Location: index.php?message=Success! Payment saved successfully.");
         exit;
     } else {
         header("Location: account.php?message=Error: Unable to save payment.");
         exit;
     }
-} else {
-    header("Location: account.php?message=Error! Payment already made.");
-    exit;
 }
-
 ?>

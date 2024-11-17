@@ -16,6 +16,7 @@ SET
     `student_id` = '$student_id',
     `amount` = '$amount',
     `pay_date` = '$pay_date'
+    'del_status' != 'deleted'
 WHERE
  id = '$id'";
 

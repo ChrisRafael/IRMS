@@ -127,8 +127,8 @@
     ?>
 
     <div class="content">
-        <a href="index.php?page=user" class=""> <i class="fa-solid fa-arrow-left"></i>  </a>
-        <form class="row g-3" action="create.php" method="post">
+        <a href="index.php?page=teacher" class=""> <i class="fa-solid fa-arrow-left"></i>  </a>
+        <form class="row g-3" action="update.php?id=<?php echo $row['id']?>" method="post">
             
         <h3>Personal Information</h3>
             <div class="grid-container grid-container--fill">
@@ -198,7 +198,7 @@
 
             <div class="footer">
             <button class="save" type="submit">Update</button>
-            <a href="./"><button class="cancel" type="button">Cancel</button></a>
+            <a href="delete.php?id=<?php echo $row['id']; ?>"><button class="cancel" type="button">Delete</button></a>
             </div>
 
         </form>

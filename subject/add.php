@@ -7,114 +7,13 @@
     <meta name="google" value="notranslate" />
     <link rel="icon" type="image/x-icon" href="../file_index/image/jhslogo.png">
     <link rel="stylesheet" href="../style.cssassets/css/style.css">
-
-
-
+    <link rel="stylesheet" href="../assets/css/subject.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <title>Add User</title>
 </head>
 
-<style>
-            /* General Styles */
-            body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .content {
-            width: 80%;
-            margin-left:auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-
-        /* Grid Layout for the form */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            grid-gap: 20px;
-            padding: 20px 0;
-        }
-
-        .grid-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Form Labels */
-        label.form-label {
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        /* Form Inputs */
-        .form-control {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: #4CAF50;
-        }
-
-        /* Button Styles */
-        .footer {
-            text-align: right;
-            margin-top: 20px;
-        }
-
-        .footer button {
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .save {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .save:hover {
-            background-color: #45a049;
-        }
-
-        .cancel {
-            background-color: #f44336;
-            color: white;
-        }
-
-        .cancel:hover {
-            background-color: #e53935;
-        }
-
-        .card{
-            padding:4px;
-            margin-left: 0;
-            margin-right:0;
-            width: 2rem; 
-            text-align:center;
-            margin-bottom:50px;
-        
-        
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .content {
-                width: 95%;
-            }
-        }
-
-</style>
 <body>
 <?php
         $page = 'subject';
@@ -136,19 +35,6 @@
                     <input type="text" class="form-control" id="subject_code" name="subject_code">
                 </div>
             </div>
-            <div class="grid-container grid-container--fill">
-                <div class="grid-item">
-                    <label class="form-label">Grade level</label>
-                    <select name="grade_level" class="form-control" required style="height:43px;width:25%;">
-                            <option hidden value="" hidden>Select Grade Level</option> 
-                            <option value="7">Grade 7</option>
-                            <option value="8">Grade 8</option>
-                            <option value="9">Grade 9</option>
-                            <option value="10">Grade 10</option>
-                    </select>
-                </div>
-            </div>
-
             <div class="footer">
                 <button class="save" type="submit">Save</button>
                 <a href="./"><button class="cancel" type="button">Cancel</button></a>
@@ -156,6 +42,46 @@
     
 
         </form>
+        <!-- table for subject -->
+         <div class="table box">
+         <table id="example" class="data list">
+            <thead>
+                <tr>
+                    <th style="width: 60px;">ID</th>
+                    <th>Subject</th>
+                    <th>Subject Code</th> <!-- Show email -->
+                    <th style="width: 55px;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="">
+                <?php
+
+                // Fetch user data from the database
+                
+                $squery = mysqli_query($conn, "SELECT * FROM subject WHERE del_status != 'deleted' ORDER BY id DESC;");
+                while ($row = mysqli_fetch_array($squery)) { 
+                
+                ?>
+                <tr class="table-row" >
+                    <td><?php echo $row ['id']; ?></td>
+                    <td><?php echo $row['subject']; ?></td>
+                    <td><?php echo $row['subject_code']; ?></td>
+                    <td class="action">
+                        <a class="view" href="edit.php?id=<?php // echo $row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                    </td>
+                </tr>
+                <?php  } ?>
+                <script>
+                new DataTable('#example', {
+                order: [[0, 'desc']]
+                });
+                </script>
+
+            </tbody>
+        </table>
+
+         </div>
+
 
     </div>
 </body>

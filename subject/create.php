@@ -6,7 +6,7 @@ $subject_code = ucwords($_POST['subject_code']);
 $grade_level = $_POST['grade_level'];
 
 // Define the SQL query using $squery
-$squery = "SELECT * FROM subject WHERE subject_code = '$subject_code'";
+$squery = "SELECT * FROM subject WHERE subject_code = '$subject_code' AND del_status != 'deleted'";
 
 // Execute the query
 $result = mysqli_query($conn, $squery);
@@ -16,11 +16,11 @@ if (mysqli_num_rows($result) === 0) {
     $sql = "INSERT INTO `subject` (
         `subject`,
         `subject_code`,
-        `grade_lvl`
+        `del_status`
     ) VALUES (
         '$subject',
         '$subject_code',
-        '$grade_level'
+        'active'
     )";
 
     if (mysqli_query($conn, $sql)) {
