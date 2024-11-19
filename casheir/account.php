@@ -43,6 +43,9 @@ if (isset($_GET['id'])) {
     echo "Student ID not provided.";
     exit;
 }
+// Include receipt template
+//include "../casheir/receipt.php";
+
 ?>
 
 
@@ -65,17 +68,34 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="grid-item">
                     <label class="form-label">Date</label>
-                    <input type="date" class="form-control" id="pay_date" name="pay_date" value="<?php echo $student['pay_date']; ?>">
+                    <input type="date" class="form-control" id="pay_date" name="pay_date" value="<?php echo $student['pay_date']; ?>" readonly>
                     </div>
                 </div>
 
             <div class="footer">
-                <button class="save" type="submit">Save</button>
+             <!--   <button class="save" type="submit">Save</button>
                 <a href="./"><button class="cancel" type="button">Cancel</button></a>
+                <button onclick="window.print();" style="display: block; margin: 20px auto; padding: 10px 20px; background: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+                    Print Receipt
+                </button>-->
+
             </div>
                     
 
         </form>
+        <script>
+            //auto fill date
+        document.addEventListener('DOMContentLoaded', function () {
+            const dateInput = document.getElementById('pay_date');
+            if (!dateInput.value) { // Only set if no date is already provided (to preserve existing data).
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+                const dd = String(today.getDate()).padStart(2, '0');
+                dateInput.value = `${yyyy}-${mm}-${dd}`;
+            }
+        });
+    </script>
 
     </div>
 </body>

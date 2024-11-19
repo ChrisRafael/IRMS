@@ -6,128 +6,103 @@
             }
 
             .content {
-            overflow: hidden;
-            margin-left:auto;
-            width: 80%;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-            /* Header */
-            h1 {
+                overflow: hidden;
+                margin-left:auto;
+                width: 80%;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+    
+                /* Header */
+                h1 {
                 color: #333;
                 text-align: center;
+                font-size: 30px;
+                left:0;
             }
-
-            /* Search and Add Button */
+    
+            /* Button and Search Styles */
             .search-box {
                 display: flex;
+                gap: 10px;
                 justify-content: flex-end;
                 margin-bottom: 20px;
             }
-
-            .search-box a {
-                text-decoration: none;
-            }
-
+    
             .search-box button {
                 padding: 10px 15px;
                 background-color: #550000;
                 color: white;
                 border: none;
                 border-radius: 4px;
+                font-weight: bold;
                 cursor: pointer;
+                transition: background-color 0.3s ease;
             }
-
+    
+    
             .search-box button:hover {
-                background-color:#550000 ;
+                background-color: #7a0000;
             }
-
+    
             /* Table Styles */
             .data {
                 width: 100%;
                 border-collapse: collapse;
-                margin-top: 20px;
+                font-size: 14px;
             }
-
+    
             .data th, .data td {
                 padding: 12px 15px;
                 text-align: left;
                 border-bottom: 1px solid #ddd;
             }
-
+    
             .data th {
-                background-color:#550000;
+                background-color: #550000;
                 color: white;
             }
-
+    
             .data tr:hover {
                 background-color: #f1f1f1;
             }
-
+    
             .data td a {
                 text-decoration: none;
-                color: black;
+                color: #000;
             }
-
+    
             .data td a:hover {
-                color: #e9eef3;
+                color: #aaaeb2;
             }
-
-            .profile {
-                display: flex;
-                align-items: center;
-            }
-
-            .name {
-                margin-left: 10px;
-            }
-
-            .action {
-                display: flex;
-                gap: 10px;
-            }
-
+    
             .action a {
+                display: inline-block;
                 padding: 6px 10px;
                 background-color: #fff;
                 color: black;
-                border: black solid 1px;
+                border: 1px solid black;
                 border-radius: 4px;
                 text-decoration: none;
+                transition: all 0.3s ease;
             }
-
+    
             .action a:hover {
-                background-color: #f4ededef;
+                background-color: #ddd;
                 color: black;
             }
-            /* search engine css */
-            .search-container {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 20px;
-            }
     
-            .search-box {
-                margin-left: auto;
-            }
-    
-            .search-input {
-                padding: 8px;
-              
-                font-size: 14px;
-            }
             /* Responsive Adjustments */
             @media (max-width: 768px) {
-                .content-container {
-                    width: 80%;
-                    
+                .search-box {
+                    flex-direction: column;
+                    align-items: flex-end;
                 }
-
+    
                 .data th, .data td {
-                    padding: 8px 10px;
+                    padding: 8px;
                 }
-            }
+            }   
+    

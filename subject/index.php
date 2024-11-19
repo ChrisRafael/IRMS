@@ -36,7 +36,8 @@
             h1 {
             color: #333;
             text-align: center;
-            margin-bottom: 20px;
+            font-size: 30px;
+            left:0;
         }
 
         /* Button and Search Styles */
@@ -58,7 +59,6 @@
             transition: background-color 0.3s ease;
         }
 
-       .search-extend
 
         .search-box button:hover {
             background-color: #7a0000;
@@ -92,7 +92,7 @@
         }
 
         .data td a:hover {
-            color: #007bff;
+            color: #aaaeb2;
         }
 
         .action a {
@@ -121,7 +121,8 @@
             .data th, .data td {
                 padding: 8px;
             }
-        }    </style>
+        }   
+         </style>
     <body>
 
     <?php
@@ -132,7 +133,7 @@
 
 
     <div class="content">
-        <h1>User List</h1>
+        <h1>Subject And Teacher</h1>
 
         <!-- Add Button -->
         <div class="search-box">
@@ -142,13 +143,14 @@
         <a href="./assign_subject.php" class="" ><button>Assign Subject</button></a>
         </div>
 
-        <!-- Student Table -->
+        <!-- Subject Table -->
         <table id="example" class="data list">
             <thead>
                 <tr>
                     <th style="width: 60px;">ID</th>
                     <th>teacher</th>
-                    <th>Subject Code</th> <!-- Show email -->
+                    <th>Subject</th> <!-- Show subject -->
+                    <th>Subject Code</th> <!-- Show subject code -->
                     <th style="width: 55px;">Action</th>
                 </tr>
             </thead>
@@ -162,12 +164,12 @@
                 SELECT 
                     a.id,
                     CONCAT(t.first_name, ' ', t.last_name) AS teacher_name,
-                    s.subject_code,
+                    s.subject_code, s.subject,
                     a.grade_lvl
                 FROM assign_subject a
                 INNER JOIN teacher t ON a.teacher_id = t.id
                 INNER JOIN subject s ON a.subject_id = s.id
-                WHERE a.del_status = 'active'
+                WHERE a.del_status = 'active' AND  s.del_status != 'deleted' AND  t.del_status != 'deleted'
                 ORDER BY t.first_name, a.grade_lvl;
             ");
                 while ($row = mysqli_fetch_array($squery)) { 
@@ -176,9 +178,10 @@
                 <tr class="table-row" >
                     <td><?php echo $row ['id']; ?></td>
                     <td><?php echo $row['teacher_name']; ?></td>
+                    <td><?php echo $row['subject']; ?></td>
                     <td><?php echo $row['subject_code']; ?></td>
                     <td class="action">
-                        <a class="view" href="edit.php?id=<?php // echo $row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a class="view" href="edit.php?id=<?php  echo $row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                 </tr>
                 <?php  } ?>

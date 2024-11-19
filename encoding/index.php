@@ -15,7 +15,7 @@
     <body>
 
     <?php
-        $page = 'casheir';
+        $page = 'encode';
         include '../navbar.php'; // Include this template code
     ?>
 
@@ -25,7 +25,7 @@
 
         <!-- Add Button -->
         <div class="search-box">
-
+        <a href="encode.php" class=""><button>Add User</button></a>
         </div>
         <div class="MyModal">
         <label for="search-item">
@@ -49,36 +49,36 @@
             <tbody>
                 <?php
                 // Fetch student data from the database
-             /*   include "../database/db.php";  // Include your database connection
+                include "../database/db.php";  // Include your database connection
 
                 
                 $squery = mysqli_query
                 ($conn, "
                     SELECT s.id, CONCAT(s.firstname, ' ', s.lastname) AS student_name, 
-                           d.amount, d.pay_date
+                           ss.room
                     FROM student s
-                    LEFT JOIN downpayment d ON d.student_id = s.id 
+                    LEFT JOIN student_subject ss ON ss.student_id = s.id 
                     WHERE s.del_status != 'deleted' 
                     ORDER BY s.id;  "
                 ); 
-                while ($row = mysqli_fetch_array($squery)) { */
+                while ($row = mysqli_fetch_array($squery)) { 
  
              ?>  
                 <tr class="table-row">
-                    <td><?php // echo $row['id']; ?></td>
+                    <td><?php  echo $row['id']; ?></td>
                     <td>
                         <div class="profile">
-                            <span class="name"><?php// echo $row['student_name']; ?></span>
+                            <span class="name"><?php echo $row['student_name']; ?></span>
                         </div>
                     </td>
-                    <td><?php // echo $row['amount']; ?></td> <!-- Display amount or "N/A" -->
-                    <td><?php //echo $row['pay_date']; ?></td> <!-- Display pay_date or "N/A" -->
+                    <td><?php  //echo $row['subject_id']; ?></td> <!-- Display amount or "N/A" -->
+                    <td><?php echo $row['room']; ?></td> <!-- Display pay_date or "N/A" -->
                     <td class="action">
-                        <a class="view" href="?id=<?php // echo $row['id']; ?>">View</a>
+                    <a class="view" href="encode.php?id=<?php echo $row['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                 </tr>
                 <?php
-               // }
+                }
           
                 ?>
             </tbody>

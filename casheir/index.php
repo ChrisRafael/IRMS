@@ -71,7 +71,7 @@
                             <span class="name"><?php echo $row['student_name']; ?></span>
                         </div>
                     </td>
-                    <td><?php echo $row['amount']; ?></td> <!-- Display amount or "N/A" -->
+                    <td>P<?php echo $row['amount']; ?></td> <!-- Display amount or "N/A" -->
                     <td><?php echo $row['pay_date']; ?></td> <!-- Display pay_date or "N/A" -->
                     <td class="action">
                         <a class="view" href="account.php?id=<?php  echo $row['id']; ?>">View</a>

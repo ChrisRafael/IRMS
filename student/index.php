@@ -10,6 +10,10 @@
     <!-- Include jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../assets/js/search.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+
 </head>
 
 <body>
@@ -27,15 +31,6 @@
     <div class="search-box">
         <a href="student-add.php?page=student" class=""><button>Add Student</button></a>
     </div>
-    
-    <div class="MyModal">
-        <label for="search-item">
-            Search
-            <input type="text" id="MyModal" name="search" placeholder="Search..." class="search-input">
-        </label>
-    </div>
-
-
 
 
     <!-- Student Table -->
@@ -72,6 +67,11 @@
             <?php } ?>
         </tbody>
     </table>
-
+    <script>
+    new DataTable('#example', {
+    order: [[0, 'desc']]
+    });
+    </script>
+</div>
 </body>
 </html>

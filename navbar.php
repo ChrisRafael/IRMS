@@ -50,19 +50,20 @@ $role = $row['role'];
         <div class="side-bar">
             <ul class="selection">
             <li><a href="../dashboard/" class="<?php if ($page == 'dashboard') echo 'active'; ?>">&nbsp;<i class="bi bi-house"></i> Dashboard</a></li>
+                <li><a href="../teacher/" class="<?php if ($page == 'teacher') echo 'active'; ?>">&nbsp;<i class="fa-solid fa-chalkboard-teacher"></i> Teacher</a></li>
+                <li><a href="../subject/" class="<?php if ($page == 'subject') echo 'active'; ?>">&nbsp;<i class="fa-solid fa-book-open"></i> Subject</a></li>
                 <li><a href="../student/" class="<?php if ($page == 'student') echo 'active'; ?>">&nbsp;<i class="bi bi-person-plus-fill"></i> Student</a></li>
                 <li><a href="../profile/" class="<?php if ($page == 'profile') echo 'active'; ?>">&nbsp;<i class="bi bi-person-lines-fill"></i> Profile</a></li>
                 <li><a href="../casheir/" class="<?php if ($page == 'casheir') echo 'active'; ?>">&nbsp;<i class="fa-solid fa-coins"></i> Payment</a></li>
-                <li><a href="../teacher/" class="<?php if ($page == 'teacher') echo 'active'; ?>">&nbsp;<i class="fa-solid fa-chalkboard-teacher"></i> Teacher</a></li>
-                <li><a href="../subject/" class="<?php if ($page == 'subject') echo 'active'; ?>">&nbsp;<i class="fa-solid fa-book-open"></i> Subject</a></li>
+                <li><a href="../encoding/" class="<?php if ($page == 'encode') echo 'active'; ?>">&nbsp;<i class="fa-solid fa-coins"></i> Encode</a></li>
                <!-- <li class="dropdown">
                     <a href="#" class="dropbtn">Record</a>
                     <ul class="dropdown-content">
                         <li><a href="#">Student Record</a></li>
                         <li><a href="#">File</a></li>
                     </ul>
-                </li> -->
-                <!-- dorpdown
+                </li>
+                 dorpdown
                                 <div class="dropdown">
                   <button class="dropdown-button" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
                     Dropdown button

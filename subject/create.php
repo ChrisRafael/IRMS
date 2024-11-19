@@ -24,7 +24,7 @@ if (mysqli_num_rows($result) === 0) {
     )";
 
     if (mysqli_query($conn, $sql)) {
-        header("Location: index.php?message=Success! Changes have been saved successfully.");
+        header("Location: add.php?message=Success! Changes have been saved successfully.");
     } else {
         header("Location: add.php?message=Error! Failed to insert the subject.");
     }

@@ -166,8 +166,13 @@
             </div>
             <div class="grid-container grid-container--fill">
                 <div class="grid-item">
-                    <label class="form-label">Suffix:</label>
-                    <input type="text" class="form-control" id="role" name="role" value="<?php echo ($row['role']); ?>" >
+                    <label class="form-label">Role:</label>
+                    <select name="role" class="form-control" id="role" required style="height:43px;">
+                    <option hidden value="<?php echo ($row['role']); ?>"><?php echo ($row['role']); ?></option> 
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                    </select>
+
                 </div>
                 <div class="grid-item">
                     <label class="form-label">Password:</label>
